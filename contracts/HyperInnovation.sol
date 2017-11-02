@@ -187,7 +187,7 @@ contract HyperInnovation is ERC20,SafeMath{
   }
 
   // Finalize crowdfunding
-  // Finally - Transfer the Ether to Multisig Wallet
+  // Finally - Transfer the Ether to owner address
   function finalizeCrowdfunding() external {
       // Abort if not in Funding Success state.
       if (getState() != State.Success) throw; // don't finalize unless we won
@@ -203,7 +203,7 @@ contract HyperInnovation is ERC20,SafeMath{
       if(unsoldTokens > 0) {
           totalSupply = safeAdd(totalSupply, unsoldTokens);
           // Remaining unsold tokens assign to owner account
-          balances[owner] = safeAdd(balances[owner], unsoldTokens);// Assign Reward Tokens to Multisig wallet
+          balances[owner] = safeAdd(balances[owner], unsoldTokens);// Assign Reward Tokens to owner wallet
           Transfer(0, owner, unsoldTokens);
       }
       // Total Supply Should not be greater than 1 Billion
