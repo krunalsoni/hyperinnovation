@@ -16,7 +16,7 @@ contract HyperInnovation is ERC20,SafeMath{
 
   // Token related information
   string public constant name = "HyperInnovation";
-  string public constant symbol = "HyperInno";
+  string public constant symbol = "HIT";
   uint256 public constant decimals = 18;  // decimal places
 
   // Events for refund process
